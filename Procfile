@@ -1,1 +1,1 @@
-web: gunicorn log_analyzer:server_log_analysis
+web: gunicorn --pythonpath app log_analysis.wsgi --log-file -
