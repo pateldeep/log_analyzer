@@ -1,0 +1,6 @@
+
+
+This log was captured in level 5
+
+Index    Start Date    Start Time    Connection    Rule Checked    Params    Result
+-------  ------------  ------------  ------------  --------------  --------  --------

@@ -65,9 +65,10 @@ app.config.update(
 )
 
 # mail = Mail(app)
-fileNameToUse = "".join(
-    random.choice(string.ascii_letters + string.digits) for i in range(12)
-)
+#fileNameToUse = "".join(
+#    random.choice(string.ascii_letters + string.digits) for i in range(12))
+fileNameToUse = "outputlogs"
+
 
 
 @app.route("/addRegion/file_downloads/")
@@ -83,7 +84,7 @@ def return_files():
     f = open(DOWNLOAD_FOLDER + "/" + fileNameToUse + ".txt", "r")
     global totalVisitors
     totalVisitors += 1
-    with open(path+"/downloads/counter.txt", 'w') as currCounter:
+    with open(path + "/downloads/counter.txt", 'w') as currCounter:
         currCounter.write(str(totalVisitors))
     return send_from_directory(
         DOWNLOAD_FOLDER, fileNameToUse + ".txt", as_attachment=True
