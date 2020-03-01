@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon" href= "{{ url_for('static',filename='favicon.ico') }}"/>
+    <link rel="stylesheet" type = "text/css" href = "{{ url_for('static', filename = 'styles.css')}}">
+    <title>Download File</title>
+</head>
+<body class="body">
+<button><a class="navBar" href="/">Home</a></button>
+<div class = "modcontainer">
+    <form id = "contact" action="{{ url_for('makeText') }}" enctype="multipart/form-data" method="post"  onsubmit="return validate(this)" >
+            <h1>Let's try another way</h1>
+	    <h2>Copy Everything from the log file and paste it below</h2>
+            <textarea name = "logFile" placeholder="Copy/Paste everything from the log in here..."></textarea>
+            <button name="submit" type="submit" id="contact-submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>

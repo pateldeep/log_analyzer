@@ -1,0 +1,16 @@
+{
+  "HC_PASS_STRING": ["'NotifyConnectionChange'.*`Open': `Success'"],
+  "HC_CONNECTION_ID_NAR": "connection (.+?) on NAR (.+?),",
+  "HC_OPSWAT_CLIENT_SEARCH_STRING": "<parameter name=\"(.+?)\" value=\"(.+?);(.+?);(.+?);(.+?);(.+?);(.+?);(.+?);(.+?);(.+?);",
+  "HC_OPSWAT_SERVER_SEARCH_STRING": "<parameter name=\"(.+?)\" value=\"(.+?);(.+?);(.+?);(.+?);(.+?);(.+?);(.+?);(.+?);(.+?);",
+  "HC_FAIL_STRING": ["'NotifyConnectionChange'.*`Denied': `Success'"],
+  "HC_START_PHRASE": ["'TncHandshake' Host check started, beginning handshake"],
+  "HC_OPSWAT_PHRASE": [
+    "dsAccessService",
+    "OpswatIMC",
+    "'toImvMessage' IMV Message"
+  ],
+  "OPSWAT_CLIENT_SEARCH_STRING": "<parameter name=(.+?) value=(.+);",
+  "OPSWAT_SERVER_SEARCH_STRING": "<parameter name=(.+?) value=(.+);",
+  "IMV_MESSAGE": "Sending message to IMV"
+}

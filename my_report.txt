@@ -1,0 +1,28 @@
+  Index  Start Date    Start Time    End Date    End Time      Conn Id    Rule Checked      Params                                                                                                                                                                                              Result
+-------  ------------  ------------  ----------  ------------  ---------  ----------------  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  --------------------------
+      1  2019/06/07    12:13:40.590  2019/06/07  12:13:41.258  0x1b       "policy_request"  "product_id=100137                                                                                                                                                                                  HC PASS. Connection Open
+      2  2019/06/12    09:43:56.633  2019/06/12  09:43:59.433  0x1d       "AntiVirus"       product_sig=100141                                                                                                                                                                                  HC FAIL. Connection Denied
+                                                                          "AntiVirus"       product_name=Gatekeeper
+                                                                          "AntiVirus"       vendor_name=Apple Inc.
+                                                                          "AntiVirus"       product_version=10.14.3
+                                                                          "policy_request"  is_authentic=UNKNOWN
+                                                                          "policy_request"  translated_product_name=Gatekeeper
+                                                                          "AntiVirus"       translated_vendor_name=Apple Computer, Inc.
+                                                                          "AntiVirus"       translated_product_version=10.14.3
+                                                                          "AntiVirus"       gmt_offset=420
+                                                                          "Firewall"        fsrtp=YES
+                                                                          "Firewall"        last_scan_time=
+                                                                          "AntiVirus"       data_file_details=
+                                                                                            virus_def_sig=
+                                                                                            def_update_in_progress=UNKNOWN
+                                                                                            scan_in_progress=NO
+                                                                                            services_running=UNKNOWN
+                                                                                            error=GetLastFullScanTime:WAAPI_ERROR_COMPONENT_METHOD_NOT_SUPPORTEDGetDataFileDetails:WAAPI_ERROR_COMPONENT_METHOD_NOT_SUPPORTEDIsFullScanInProgress:WAAPI_ERROR_COMPONENT_METHOD_NOT_IMPLEMENTED
+                                                                                            "><parameter name="Firewall" value="product_id=100022
+                                                                                            product_sig=100189
+                                                                                            product_name=Mac OS X Builtin Firewall
+                                                                                            vendor_name=Apple Inc.
+                                                                                            product_version=10.14.3
+                                                                                            is_authentic=UNKNOWN
+                                                                                            isEnabled=YES
+                                                                                            error=

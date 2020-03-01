@@ -1,0 +1,5 @@
+.vscode/*
+
+log_analyzer/*
+
+__pycache__/*

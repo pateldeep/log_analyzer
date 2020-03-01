@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href= "{{ url_for('static',filename='favicon.ico') }}"/>
+
+    <link rel="stylesheet" type = "text/css" href = "{{ url_for('static', filename = 'styles.css')}}">
+	<title>Submit your file</title>
+    <script>
+	function validate(form) {
+		//fail = validateName(form.fileToUpload.value)
+		if (fail == "") {return true}
+		else { alert(fail); return false }
+	}
+    function validateName(field)
+    { // limit by .log
+        var n = field.endsWith(".log");
+        val = "";
+        if (n == false) 
+            val += "Not in a valid .log format file. Please download the file in the correct format.\n"
+        return val
+    }
+        // the time stamp 
+	</script>
+</head>
+<body>
+<button><a class="navBar" >Visitors: {{ visitors }}</a></button>
+<div class="container">
+  <form id = "contact" action="{{ url_for('addRegion') }}" enctype="multipart/form-data" method="post"  onsubmit="return validate(this)" >
+    <h3>Analyze Your Log File</h3>
+    <fieldset><p>Select your file to upload:</p>
+        <input type="file" name="fileToUpload" id="fileToUpload" accept = ".log" required>
+    </fieldset>
+    <fieldset>
+    <p>What would you like to see parsed?
+        <select name = "chooseToParse" required>
+            <option value="all">All</option>
+            <option value="host-checker">Host Checker</option>
+            <option value="pdc-conn">PDC Connection</option>
+            <option value="wts-conn">Window Terminal Serv.</option>
+            <option value="cert">Certificate</option>
+            <option value="suppression">Suppression</option>
+        </select>
+    </p>
+    </fieldset>
+    <fieldset>
+        <p>Enter Starting Time Stamp (optional):</p>
+        <input type="date" name="strDate">
+        <input type="time" name="strTime" step="1">
+    </fieldset>
+    <fieldset>
+        <p>Enter Ending Time Stamp (optional):</p>
+        <input type="date" name="endDate">
+        <input type="time" name="endTime" step="1">
+    </fieldset>
+    <fieldset>
+		<p>Would you like to send yourself an email?</p>
+		<input type="radio" name="sendmail" value="yes"> Yes<br>
+		<input type="radio" name="sendmail" value="no" checked> No<br>
+        <p>Separate multiple email id's by comma</p>
+        <input type="text" name="userid"> @pulsesecure.net
+    </fieldset>
+    <fieldset>
+        <button name="submit" type="submit" id="contact-submit">Submit</button>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

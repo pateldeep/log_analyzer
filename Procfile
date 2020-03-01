@@ -1,0 +1,1 @@
+web: gunicorn log_analyzer:server_log_analysis

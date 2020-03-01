@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href= "{{ url_for('static',filename='favicon.ico') }}"/>
+
+    <link rel="stylesheet" type = "text/css" href = "{{ url_for('static', filename = 'styles.css')}}">
+    <title>Download File</title>
+</head>
+<body class="body">
+<div class = "container">
+    <div  id = "contact">
+        <form action="{{ url_for('return_files') }}" enctype="multipart/form-data" method="post"  onsubmit="return validate(this)" >
+            <h3>Download your file</h3>
+                <button type = "submit" id="contact-submit">Download the report</button></a>
+        </form>
+        <a href="/log_analysis"><button type = "submit">Home Page</button></a>
+    </div>
+</div>
+</body>
+</html>
