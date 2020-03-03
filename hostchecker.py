@@ -11,6 +11,7 @@ import json
 import time
 from paths import path
 from datetime import datetime, timedelta
+import threading
 
 # Code to read through logs and display host checker logs
 
@@ -1109,8 +1110,11 @@ def click_func(file_object, user_ts_start, user_ts_end, user_list, send, parseBa
     mail_list = user_list
     global receivers
     receivers = mail_list
+    ret_val = 1
     if not user_ts_start.strip(" ") and not user_ts_end.strip(" "):
-        ret_val = hc_Log_read(file_object, send, parseBased, fileNameToUse)
+        thread = threading.Thread(target=hc_Log_read, args=(file_object, send, parseBased, fileNameToUse))
+        thread.start()       
+        # ret_val = hc_Log_read(file_object, send, parseBased, fileNameToUse)
     elif user_ts_start.strip(" ") and user_ts_end.strip(" "):
         ret_val = find_ts_interval(user_ts_start, user_ts_end, file_object, send, parseBased, fileNameToUse)
     else:

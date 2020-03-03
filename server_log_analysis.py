@@ -134,11 +134,21 @@ def makeText():
     if ret_val == 2:
         return render_template("mail_sent.html")
     elif ret_val == 1:
-        return redirect(url_for("file_downloads"))
+        return redirect(url_for("loading"))
+        # return redirect(url_for("file_downloads"))
     elif ret_val == "fail":
         return render_template("checkFile.html")
     else:
         return redirect(url_for("index"))
+
+@app.route("/loading", methods=["POST", "GET"])
+def loading():
+    # print(fileNameToUse)
+    for subdir, dirs, files in os.walk(path + "/downloads"):
+            for file in files:
+                if file == fileNameToUse+".txt":
+                    return redirect(url_for("file_downloads"))    
+    return render_template("loadingPage.html", fileNameToUse = fileNameToUse)
 
 
 @app.route("/addRegion", methods=["GET", "POST"])
@@ -147,7 +157,10 @@ def addRegion():
     strt_t = None
     end_d = None
     end_t = None
-
+    global fileNameToUse
+    fileNameToUse = "".join(
+        random.choice(string.ascii_letters + string.digits) for i in range(12)
+    )
     file = request.files.get("fileToUpload")
     send_email = request.form.get("sendmail")
     filename = secure_filename(file.filename)
@@ -177,7 +190,8 @@ def addRegion():
     if ret_val == 2:
         return render_template("mail_sent.html")
     elif ret_val == 1:
-        return redirect(url_for("file_downloads"))
+        return redirect(url_for("loading"))
+        # return redirect(url_for("file_downloads"))
     elif ret_val == "fail":
         return render_template("checkFile.html")
     else:
