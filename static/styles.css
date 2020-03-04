@@ -10,6 +10,13 @@
   text-rendering: optimizeLegibility;
 }
 
+.alert{
+  color: white;
+  text-align: center;
+  background-color: red;
+  margin-bottom: 10px;
+}
+
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
