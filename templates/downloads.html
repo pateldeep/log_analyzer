@@ -10,6 +10,9 @@
 <body class="body">
 <div class = "container">
     <div  id = "contact">
+        {% if level > 3 %}
+            <h2 class = "alert">Log is in detailed mode</h2>
+        {% endif %}
         <form action="{{ url_for('return_files') }}" enctype="multipart/form-data" method="post"  onsubmit="return validate(this)" >
             <h3>Download your file</h3>
                 <button type = "submit" id="contact-submit">Download the report</button></a>
