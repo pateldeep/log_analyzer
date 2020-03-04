@@ -73,8 +73,14 @@ fileNameToUse = "outputlogs"
 
 @app.route("/addRegion/file_downloads/")
 def file_downloads():
+    with open(DOWNLOAD_FOLDER + "/" + fileNameToUse + ".txt", "r") as nF:
+        for cnt, line in enumerate(nF):
+            if "This log was captured in level" in line:
+                logLevel = line.strip()
+                break
+    logLevel = int(logLevel[logLevel.find("level")+len("level "):])
     try:
-        return render_template("downloads.html")
+        return render_template("downloads.html", level = logLevel)
     except Exception as e:
         return str(e)
 
@@ -143,7 +149,6 @@ def makeText():
 
 @app.route("/loading", methods=["POST", "GET"])
 def loading():
-    # print(fileNameToUse)
     for subdir, dirs, files in os.walk(path + "/downloads"):
             for file in files:
                 if file == fileNameToUse+".txt":
