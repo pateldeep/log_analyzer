@@ -387,6 +387,18 @@ def hc_Log_read(fo, send, parseBased, fileNameToUse):
                 hc_pass_count += 1
                 index += 1
                 continue
+            elif (parseBased == "pdc-conn" or parseBased == "all") and "iveMaxConcurrentUsersSignedIn" in line:
+                conUsers = line[line.find("iveConcurrentUsers="):line.find("]", line.find("iveConcurrentUsers="))]
+                hc_dic["Rule Checked"].append("iveMaxConcurrentUsersSignedIn")
+                hc_dic["Result"].append(conUsers)
+                hc_dic["Params"].append(" ")
+                hc_dic["Index"].append(index)
+                hc_dic["Connection"].append(" ")
+                hc_dic["Start Date"].append(" ")
+                hc_dic["Start Time"].append(" ")
+                hc_pass_count += 1
+                index += 1
+                continue
             elif (parseBased == "pdc-conn" or parseBased == "all") and "SSL connect" in line:
                 getTimeStamps = line.split(' ')[1:3]
                 line = line[line.find("SSL connect") + len("SSL connect ") :]
